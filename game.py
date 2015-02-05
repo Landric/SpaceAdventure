@@ -1,24 +1,31 @@
-from entity import Enemy, Ted
+from entity import Enemy, Player
+from station import Station
 
-player = Ted()
-rooms = generateRooms()
+player = Player()
+station = Station()
 
-def generateRooms():
-    pass
+def main_loop():
+    while True:
 
-def mainLoop():
-    while(True):
-
-        for enemy in rooms[player.location].objects:
+        for enemy in station[player.level].rooms[player.room].objects:
             if isinstance(enemy, Enemy):
                 combat(player, enemy)
 
-        move()
+        take_turn()
+
+
+def take_turn():
+    # move
+    # item
+    # map?
+    pass
+
 
 def move():
     pass
 
+
 def combat(player, enemy):
-    while(player.health > 0 and enemy.health > 0):
+    while player.health > 0 and enemy.health > 0:
         player.attack(enemy)
         enemy.attack(player)
