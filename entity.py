@@ -6,7 +6,7 @@ class Entity(object):
     __metaclass__ = ABCMeta
 
     def __init__(self):
-        self.health = 4 * randint(1, 8) - (-2)
+        self.health = 4 * randint(1, 8)
         self.damage = randint(1, 5)
         self.armour = randint(1, 15)
         self.name = ""
@@ -20,6 +20,7 @@ class Entity(object):
 
         if thing_to_attack.health <= 0:
             print("The {0} is dead!".format(thing_to_attack.name))
+
 
 class Player(Entity):
 
@@ -43,9 +44,10 @@ class Alien(Enemy):
         self.name = "Alien"
         self.damage += randint(1, 4)
 
+
 class Robot(Enemy):
     def __init__(self):
-        super(Alien, self).__init__()
+        super(Robot, self).__init__()
         self.name = "Robot"
         self.armour += randint(1, 4)
         self.health += randint(1, 4)
